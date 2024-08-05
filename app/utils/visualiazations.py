@@ -46,7 +46,7 @@ def create_thailand_bubble_map(data, lat, lon, size, title):
             sizemode='area',
             sizeref=10.*size_max/(100.**2),
             sizemin=5,
-            color=f'rgba(170, 0, 255, 0.7)',  # Semi-transparent blue
+            color='rgba(170, 0, 255, 0.7)',  # Semi-transparent purple
         ),
         text=data.apply(lambda row: f"{row['province']}: {row[size]} projects", axis=1),
         hoverinfo='text'
@@ -63,4 +63,8 @@ def create_thailand_bubble_map(data, lat, lon, size, title):
         height=600,
     )
 
+    return fig
+
+def create_line_chart(data, x, y, title):
+    fig = px.line(data, x=x, y=y, title=title)
     return fig
