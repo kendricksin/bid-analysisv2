@@ -19,8 +19,8 @@ def load_data():
     numeric_columns = ['registered_capital', 'company_value']
     companies_df[numeric_columns] = companies_df[numeric_columns].apply(pd.to_numeric, errors='coerce')
     
-    # Load projects data (assuming it's still in the gov_procurement table)
-    projects_df = pd.read_sql_table('gov_procurement', engine)
+    # Load projects data (assuming it's still in the projects table)
+    projects_df = pd.read_sql_table('projects', engine)
     
     # Load financial data
     financial_df = pd.read_sql_table('financial_data', engine)

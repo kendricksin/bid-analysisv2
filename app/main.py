@@ -19,7 +19,7 @@ def main():
     initialize_session_state()
     
     # Load data
-    companies_df, projects_df = load_data()
+    companies_df, projects_df, financial_df = load_data()
     
     # Sidebar for navigation
     st.sidebar.title('Navigation')
@@ -44,11 +44,11 @@ def main():
 
     # Route to the appropriate page
     if st.session_state.page == "home":
-        homepage.show(companies_df, projects_df)
+        homepage.show(companies_df, projects_df, financial_df)
     elif st.session_state.page == "search":
         company.show(companies_df, projects_df)
     elif st.session_state.page == "company" and st.session_state.company_id:
-        company_detail.show(companies_df, projects_df, st.session_state.company_id)
+        company_detail.show(companies_df, projects_df, financial_df, st.session_state.company_id)
     else:
         st.error("Page not found")
 
